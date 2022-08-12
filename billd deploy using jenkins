@@ -1,0 +1,49 @@
+using git hub
+-------------------
+git clone https://github.com/Shareef208/AXYYA-DIGITAL.git
+
+
+
+
+create namespace
+---------------------------
+kubectl create namespace axyya
+
+
+create service account
+------------------------------------
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: jenkins
+  namespace: axyya
+  
+  
+  CREATE SERVICE ACCOUNT KUBECTL
+  ----------------------------------------
+  kubectl apply -f serviceAccount.yaml
+  
+  
+  
+  CREATE DEPLOYEMENT YAML FILE
+  ---------------------------------------------
+  
+  apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  namespace: axyya
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  port: 3000
+  
+  
+  
+  
+  CREATE DEPLOYEMENT USING KUBECTL
+  ------------------------------------------
+  
+  kubectl -f deployment.yaml
